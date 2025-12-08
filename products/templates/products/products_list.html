@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+
+<h2>Available Products</h2>
+
+{% if products %}
+    <ul>
+        {% for product in products %}
+            <li>
+                <strong>{{ product.name }}</strong><br>
+                Price: Ksh {{ product.price }}<br>
+                {{ product.description }}<br>
+
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" width="150">
+                {% endif %}
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No products available.</p>
+{% endif %}
+
+</body>
+</html>
