@@ -43,7 +43,7 @@ def view_cart(request):
     items = cart.cartitem_set.all()
     total = cart.total_price()
 
-    return render(request, 'cart.html', {
+    return render(request, 'products/cart.html', {
         'cart': cart,
         'items': items,
         'total': total
@@ -67,7 +67,7 @@ def checkout(request):
 
     total = cart.total_price()
 
-    return render(request, 'checkout.html', {
+    return render(request, 'products/checkout.html', {
         'items': items,
         'total': total
     })
@@ -98,7 +98,7 @@ def confirm_order(request):
     # clear cart
     cart.cartitem_set.all().delete()
 
-    return render(request, 'order_success.html', {
+    return render(request, 'products/order_success.html', {
         'order': order
 })
 
@@ -170,4 +170,12 @@ def sell_item(request):
         form = ProductForm()
 
     return render(request, 'products/sell_item.html',{'form': form})
+def home(request):
+    return render(request, 'products/home.html')
+
+def about(request):
+    return render(request, 'products/about.html')
+
+def contact(request):
+    return render(request,'products/contact.html')
 

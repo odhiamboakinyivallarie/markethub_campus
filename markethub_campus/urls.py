@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,16 @@ urlpatterns = [
     path('products/', include('products.urls')),
 
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+    path('admin/', admin.site.urls),
+    path('', include('products.urls')),
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
+
+    path('', include('products.urls')),  # your main app
+
+    # About and Contact pages
+
 ]
 
 if settings.DEBUG:
