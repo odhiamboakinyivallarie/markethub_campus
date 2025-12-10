@@ -1,0 +1,30 @@
+<h1>Your Cart</h1>
+
+{% if items %}
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+        <th>Action</th>
+    </tr>
+
+    {% for item in items %}
+    <tr>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>KES {{ item.product.price }}</td>
+        <td>KES {{ item.subtotal }}</td>
+        <td><a href="{% url 'remove_from_cart' item.id %}">Remove</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Total: KES {{ total }}</h3>
+
+<a href="{% url 'checkout' %}">Proceed to Checkout</a>
+
+{% else %}
+<p>Your cart is empty.</p>
+{%endif %}

@@ -1,0 +1,14 @@
+<h1>Checkout</h1>
+
+<h3>Order Summary</h3>
+
+<ul>
+  {% for item in items %}
+  <li>{{ item.product.name }} × {{ item.quantity }} = KES {{ item.subtotal }}</li>
+  {% endfor %}
+</ul>
+
+<h3>Total: KES {{ total }}</h3>
+
+<a href="{% url 'confirm_order' %}">Confirm Order</a>
+

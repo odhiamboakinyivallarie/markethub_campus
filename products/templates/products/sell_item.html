@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell Item</title>
+    <style>
+        body { font-family: sans-serif ; background:#f8f9fa; padding:30px; }
+        form {
+            max-width: 500px;
+            margin:auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding:10px;
+            margin-top:10px;
+            border:1px solid #ccc;
+            border-radius:6px;
+        }
+        .btn {
+            margin-top:15px;
+            background:#10b981;
+            color:white;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align:center;">Sell an Item</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn">Upload</button>
+</form>
+
+</body>
+</html>
